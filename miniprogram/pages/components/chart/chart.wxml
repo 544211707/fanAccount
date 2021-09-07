@@ -1,0 +1,90 @@
+<wxs module="numHandler">
+var handle = function(num) {
+  return +parseFloat(num.toPrecision(12));
+};
+
+module.exports.handle = handle;
+</wxs>
+<view class="chart">
+
+    <view class="month-selector">
+      <picker
+        class="picker"
+        mode="date"
+        value="{{year}}"
+        fields="year"
+        bindchange="bindYearChange"
+      >
+        <view class="pick-year">{{year}}年 ▾</view>
+      </picker>
+
+        <view class = "monthss">
+        <view
+          class="month {{activeMonth === (item - 1) ? 'active-month' : ''}}"
+          wx:for="{{months.month}}"
+          wx:key="{{item}}"
+          bindtap="selectMonth"
+          data-month="{{item}}"
+          id="active{{item}}"
+        >{{item}}月</view> 
+      </view>
+  </view>
+  <view class="sum">
+    <view class="summary">
+      <view class="summary-item " >
+        月支出:
+        <view class="money">{{numHandler.handle(pieChartData.flowOut.allSum || 0)}}</view>
+      </view>
+      <view class="summary-item ">
+        月收入:
+        <view class="money">{{numHandler.handle(pieChartData.flowIn.allSum || 0)}}</view>
+      </view>
+
+      <view class="summary-item1" wx:if="{{pieChartData}}">
+        月结余： <text
+          class="money"
+          style="color: {{(pieChartData.flowIn.allSum - pieChartData.flowOut.allSum) >= 0 ? '#4fd69c' : '#f75676'}}"
+        >{{(pieChartData.flowIn.allSum - pieChartData.flowOut.allSum) >= 0 ? '+' : ''}}{{numHandler.handle(pieChartData.flowIn.allSum - pieChartData.flowOut.allSum)}}</text>
+      </view>
+
+    </view>
+
+
+    <view class="empty-chart" wx:if="{{!pieChartData || pieChartData[activeTab === 'pay' ? 'flowOut' : 'flowIn'].dataList.length === 0}}">
+        没有账单数据
+    </view>
+    <view class="select-filter">
+    
+
+    </view>
+  </view>
+  <view class="bill-list">
+    <scroll-view scroll-y="{{true}}" style="height: {{(($.sysInfo.screenHeight - 390) / .7)}}rpx;" bindscrolltolower="onScrollBottom" class="bill-list">
+      <view
+        class="bill-item"
+        wx:for="{{billList}}"
+        wx:key="{{item._id}}"
+        bindtap="showMenu"
+        data-bill="{{item}}"
+        style="{{item._id === editItem._id && showMenuDialog ? 'border: 4rpx solid #f75676; padding: 16rpx 26rpx;' : ''}}"
+      >
+        <view class="type-date">
+          <view class="type">{{item.category.categoryName}}</view>
+          <view class="description" wx:if="{{item.description}}">{{item.description}}</view>
+        </view>
+        <view class="money-date">
+          <view>
+            <view class="money" style="color: {{ item.flow === 1 ? '#4fd69c;' : '#f75676;'}}">
+              {{item.flow === 0 ? '-' : '+'}}{{item.money}}
+            </view>
+            <view class="date">{{item.noteDate}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="fake-bill-item"></view>
+
+    </scroll-view>
+  </view>
+</view>
+
+

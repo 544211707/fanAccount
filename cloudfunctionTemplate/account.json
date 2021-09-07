@@ -1,0 +1,52 @@
+[
+  {
+    "name": "添加记录",
+    "value": {
+      "mode": "add",
+      "money": "100",
+      "categoryId": "others_sub",
+      "noteDate": "2019-8-28",
+      "description": "测试添加一条记录",
+      "flow": "0"
+    }
+  },
+  {
+    "name": "删除记录",
+    "value": {
+      "mode": "deleteById",
+      "id": "5d262bd45d5c07a8050a02712b3053d9"
+    }
+  },
+  {
+    "name": "修改记录模板",
+    "value": {
+      "mode": "updateById",
+      "id": "5d262bd45d5c07a8050a02712b3053d9",
+      "money": "10101",
+      "categoryId": "_oh_update",
+      "noteDate": "2020-2-14",
+      "description": "不小心被修改了"
+    }
+  },
+  {
+    "name": "获取一条指定记录",
+    "value": {
+      "mode": "getNoteById",
+      "id": "3c4c6d855d5c0b07050a1a5a0b18e0fa"
+    }
+  },
+  {
+    "name": "按菜单ID删除记录",
+    "value": {
+      "mode": "deleteByCategoryId",
+      "categoryId": ""
+    }
+  },
+  {
+    "name": "根据父ID获取列表",
+    "value": {
+      "mode": "getAccountByParentCID",
+      "categoryId": "daily_necessities"
+    }
+  }
+]

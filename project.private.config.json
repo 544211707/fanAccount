@@ -1,0 +1,54 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "没有参数的group",
+          "pathName": "pages/group/group",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/chart/chart",
+          "pathName": "pages/chart/chart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/onboarding/onboarding",
+          "pathName": "pages/onboarding/onboarding",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/components/chart/chart",
+          "pathName": "pages/components/chart/chart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/tab/tab",
+          "pathName": "pages/tab/tab",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<view class="onboarding">
+  <view class="content" wx:if="{{step === 1}}">
+    <view class="cover-out">
+      <image
+    src="https://img-blog.csdnimg.cn/21d0c5123890489882b7cb4d37b41e40.png"
+    class="cover"></image>
+    </view>
+    <view class="word">
+      <view class="title"><text class="bold">很高兴</text>认识你</view>
+
+    </view>
+  </view>
+  <view class="navigator navigator-right" bindtap="next">
+    {{ '开启' }}
+  </view>
+</view>
